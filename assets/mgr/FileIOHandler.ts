@@ -1,4 +1,3 @@
-import { MessageTip } from "../../modules/common/message/MessageTip";
 import { JuHuaDlg } from "../ui/JuHuaDlg";
 /** 
  * @descripttion 文件IO处理器
@@ -59,7 +58,7 @@ export class FileIOHandler {
     }
 
     /**保存文本到本地 */
-    public async saveTextToLocal(data: string) {
+    public async saveTextToLocal(data: string, cb?: Function, ctx?: any) {
         try {
             const opts = {
                 suggestedName: "mapData.json",
@@ -77,7 +76,7 @@ export class FileIOHandler {
             await writableStream.write(data);
             await writableStream.close();
             juhua.close();
-            MessageTip.show({ msg: '保存成功' });
+            if(cb) cb.call(ctx);
         } catch(e) {
             alert(e);
         }

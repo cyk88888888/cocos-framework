@@ -1,11 +1,12 @@
-import { Main } from "../../Main";
+import { Component, director } from "cc";
+
 /** 
  * @descripttion 自定义帧管理器
  * @author cyk
  * @date 2022-06-09 23:46:58
  */
 export class TickMgr {
-    public mainNode: Main;
+    private _mainNode: Component;
     private _tickIndex: number;
     private _tickMap: { [tickName: string]: IData_Tick };
 
@@ -15,6 +16,14 @@ export class TickMgr {
             this._inst = new TickMgr();
         }
         return this._inst;
+    }
+
+    private getCanvas(): Component {
+        if (!this._mainNode) {
+            let node = director.getScene().getChildByName('Main');
+            this._mainNode = node.getComponent("Main");
+        }
+        return this._mainNode;
     }
 
     /**全局帧执行方法 */
@@ -55,7 +64,7 @@ export class TickMgr {
 
     /**延迟一帧执行 */
     public nextTick(callback: Function, ctx?: any) {
-        this.mainNode.scheduleOnce(function () {
+        this._mainNode.scheduleOnce(function () {
             if (callback) callback.call(ctx);
         })
     }
