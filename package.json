@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "name": "cocos-framework",
     "description": "i18n:cocos-framework.description",
-    "main": "./dist/main.js",
+    "main": "./main.js",
     "author": "cyk",
     "editor": ">=3.4.2",
     "scripts": {
@@ -14,7 +14,7 @@
     "contributions": {
         "asset-db": {
             "mount": {
-                "path": "./assets",
+                "path": "./src",
                 "readonly": false
             }
         }
