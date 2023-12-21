@@ -1,7 +1,7 @@
 import { game, Layers, Node, Scene, screen, Size, UIOpacity, UITransform, Vec2, view } from "cc";
 /** 
  * @description 框架工具类
- * @author CYK
+ * @author cyk
  * @date 2022-05-19 11:39:05
  * 
  */
