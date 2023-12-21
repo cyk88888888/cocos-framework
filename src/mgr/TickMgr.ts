@@ -18,7 +18,7 @@ export class TickMgr {
         return this._inst;
     }
 
-    private getCanvas(): Component {
+    private mainNode(): Component {
         if (!this._mainNode) {
             let node = director.getScene().getChildByName('Main');
             this._mainNode = node.getComponent("Main");
@@ -64,7 +64,7 @@ export class TickMgr {
 
     /**延迟一帧执行 */
     public nextTick(callback: Function, ctx?: any) {
-        this._mainNode.scheduleOnce(function () {
+        this.mainNode().scheduleOnce(function () {
             if (callback) callback.call(ctx);
         })
     }
