@@ -3,7 +3,7 @@
       "target": "es2017",
       "module": "CommonJS",
       "outDir": "./dist",
-      "rootDir": "./src",
+      "rootDir": "assets",
       "strict": false,
       "moduleResolution": "node",
       "esModuleInterop": true,
