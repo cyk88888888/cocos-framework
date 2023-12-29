@@ -15,4 +15,11 @@ export namespace BaseEnum{
         BINARY,// readAsBinaryString
         ARRAYBUFFER,// readAsArrayBuffer
     }
+
+    /** 适配模式 */
+    export enum FitMode{
+        FitWidth = 'FitWidth',
+        FitHeight = 'FitHeight',
+        Auto = 'Auto',
+    }
 }

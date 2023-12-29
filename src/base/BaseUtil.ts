@@ -1,4 +1,6 @@
 import { game, Layers, Node, Scene, screen, Size, UIOpacity, UITransform, Vec2, view } from "cc";
+import { scaleMode } from "./ScaleMode";
+import { BaseEnum } from "./BaseEnum";
 /** 
  * @description 框架工具类
  * @author cyk
@@ -23,11 +25,17 @@ export namespace BaseUT {
         return size;
     }
 
-    /** 获取宽度适配下，layer容器宽高 */
+    /** 获取当前适配模式下，layer容器宽高 */
     export function getLayerScaleSize() {
         let windowSize = getStageSize();
-        return new Size(windowSize.width, windowSize.height);
+        if(scaleMode.fitMode == BaseEnum.FitMode.FitWidth){
+            let designHeight = windowSize.height < scaleMode.designHeight_max ? windowSize.height : scaleMode.designHeight_max;
+            return new Size(windowSize.width, designHeight);
+        }else{
+            return new Size(windowSize.width, windowSize.height);
+        }
     }
+    
     /**
      * 根据屏幕宽高自适应设置comp大小
      * @param comp 
