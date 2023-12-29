@@ -38,7 +38,7 @@ export class Sp extends Component {
         let self = this;
         self._sprite = self.node.getComponent(Sprite);
         if (!self._sprite) self._sprite = self.node.addComponent(Sprite);
-        if (self.url != '') {
+        if (!!self.url) {
             self.setUrl(self.url);
             if (self.autoPlay) self.play(self.playCount);
         }
