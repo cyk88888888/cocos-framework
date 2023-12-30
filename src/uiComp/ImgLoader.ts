@@ -60,7 +60,7 @@ export class ImgLoader extends Component {
             let spriteFrameUrl = value + '/spriteFrame';
             ResMgr.inst.loadWithoutJuHua(spriteFrameUrl, function () {
                 if(self._sprite) {
-                    let spriteFrame = ResMgr.inst.get(value);
+                    let spriteFrame = ResMgr.inst.get(spriteFrameUrl);
                     self._sprite.spriteFrame = <SpriteFrame>spriteFrame;
                     if(self.loadComplete) self.loadComplete.call(self.ctx, spriteFrame);
                 }
