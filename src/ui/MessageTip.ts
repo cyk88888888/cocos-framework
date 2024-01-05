@@ -15,8 +15,6 @@ export class MessageTip extends Component {
     public static prefabUrl: string = 'prefab/common/MessageTip';
     @property({ type: Label })
     public lbl_msg: Label;
-    @property({ type: Label })
-    public lbl_msg1: Label;
 
     public static async show(data?: { msg: string }): Promise<MessageTip> {
         let prefabPath = MessageTip.prefabUrl;
@@ -46,7 +44,7 @@ export class MessageTip extends Component {
 
     public setData(data?: any) {
         let self = this;
-        self.lbl_msg.string = self.lbl_msg1.string = data.msg;
+        self.lbl_msg.string = data.msg;
         tween(self.node)
             .to(0.5, { position: new Vec3(0, 60, 0) }, { easing: 'elasticOut' })
             .delay(0.8)
