@@ -1,17 +1,25 @@
 {
   "compilerOptions": {
-      "target": "es2017",
-      "module": "CommonJS",
-      "outDir": "./dist",
-      "rootDir": "src",
-      "strict": false,
-      "moduleResolution": "node",
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
-      "resolveJsonModule": true,
-      "experimentalDecorators": true,
-      "isolatedModules": true
+    "target": "es2017",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "src",
+    "strict": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "isolatedModules": true,
+    "types": [
+      "./temp/declarations/cc.custom-macro",
+      "./temp/declarations/cc",
+      "./temp/declarations/jsb",
+      "./temp/declarations/cc.env"
+    ]
   },
-
+  // "exclude": [
+  //   "src/**/*"
+  // ]
 }
