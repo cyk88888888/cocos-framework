@@ -43,9 +43,6 @@ export class SceneMgr {
  * @returns 
  */
     public getUCamera(): Node {
-        if (!this._canvas) {
-            this._canvas = director.getScene().getChildByName('Canvas');
-        }
         return this.getCanvas().getChildByName('UICamera');
     }
 
@@ -76,7 +73,7 @@ export class SceneMgr {
 
     }
 
-    private onUILoaded(moduleInfo: ModuleCfgInfo, data: any, toPush: boolean) {
+    private onUILoaded(moduleInfo: ModuleCfgInfo, data: any, toPush?: boolean) {
         if (toPush && this.curScene) {
             this._popArr.push(this.curScene);
             this.curScene.removeFromParent();
