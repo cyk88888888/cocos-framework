@@ -1,7 +1,11 @@
 import { _decorator, Camera, CCBoolean, CCFloat, CCString, Color, Component, error, EventTouch, find, instantiate, Node, NodeEventType, Prefab, renderer, RenderTexture, Sprite, SpriteFrame, UITransform, Vec3 } from 'cc';
 import { ResMgr } from '../mgr/ResMgr';
 const { ccclass, property } = _decorator;
-
+/** 
+ * @descripttion 3D模型显示到2dUI界面组件
+ * @author cyk
+ * @date 2024-01-18 17:01:50
+ */
 @ccclass('ModelRtt')
 export class ModelRtt extends Component {
 
