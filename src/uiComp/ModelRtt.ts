@@ -15,6 +15,8 @@ export class ModelRtt extends Component {
     modelSprite: Sprite = null;
     @property({ tooltip: '是否禁用点击，禁用时补课触摸旋转模型', type: CCBoolean})
     forbidTouch: boolean = false;
+
+    private _modelNode: Node;
     start() {
         this.modelSprite = this.getComponent(Sprite);
         this.loadPrefab();
@@ -27,7 +29,9 @@ export class ModelRtt extends Component {
         }
 
         let prefab = await ResMgr.inst.loadPrefab(this.modelUrl);
-        this.createModel(prefab);
+        if(this.node.isValid){
+            this.createModel(prefab);
+        }
     }
 
     private createModel(prefab: Prefab) {
@@ -40,7 +44,7 @@ export class ModelRtt extends Component {
 
         const newNode = new Node();
         newNode.parent = find("/");
-        const modelNode: Node = instantiate(prefab);
+        const modelNode: Node = this._modelNode = instantiate(prefab);
         modelNode.parent = newNode;
         modelNode.setPosition(new Vec3(0, this.modelOffsetY, 0));
 
@@ -69,6 +73,10 @@ export class ModelRtt extends Component {
         spriteFrame.texture = modelRtt;
         spriteFrame.flipUVY = true;
         this.modelSprite.spriteFrame = spriteFrame;
+    }
+
+    protected onDestroy(): void {
+        if(this._modelNode) this._modelNode.destroy();
     }
 }
 
