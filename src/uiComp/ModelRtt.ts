@@ -7,13 +7,13 @@ export class ModelRtt extends Component {
 
     @property({ tooltip: '模型预制体路径', type: CCString})
     modelUrl: string = "";
-    @property({ tooltip: '模型的偏移，用于调整模型显示的位置', type: CCFloat})
+    @property({ tooltip: '模型的偏移, 用于调整模型显示的位置(单位: 米)', type: CCFloat})
     modelOffsetY: number = 0;
-    @property({ tooltip: '相机的正交视角高度，用于调整模型的大小', type: CCFloat})
+    @property({ tooltip: '相机的正交视角高度, 用于调整模型的大小', type: CCFloat})
     orthoHeight: number = 0;
     @property({ tooltip: '显示3d模型的渲染纹理目标精灵'})
     modelSprite: Sprite = null;
-    @property({ tooltip: '是否禁用点击，禁用时补课触摸旋转模型', type: CCBoolean})
+    @property({ tooltip: '是否禁用点击, 禁用时不可触摸旋转模型', type: CCBoolean})
     forbidTouch: boolean = false;
 
     private _modelNode: Node;
