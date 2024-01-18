@@ -50,7 +50,7 @@ export class ResMgr {
                         this.pushResNametoMap(prefabPath);
                         resolve(prefab);
                     } else {
-                        console.log('resName: ' + prefabPath + '加载失败');
+                        console.error('resName: ' + prefabPath + '加载失败');
                         reject(err);
                     }
                 });
