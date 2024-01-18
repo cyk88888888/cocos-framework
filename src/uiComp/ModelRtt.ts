@@ -42,9 +42,9 @@ export class ModelRtt extends Component {
             height: size.height
         });
 
-        const newNode = new Node();
+        const newNode = this._modelNode = new Node();
         newNode.parent = find("/");
-        const modelNode: Node = this._modelNode = instantiate(prefab);
+        const modelNode: Node = instantiate(prefab);
         modelNode.parent = newNode;
         modelNode.setPosition(new Vec3(0, this.modelOffsetY, 0));
 
