@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, instantiate, NodeEventType } from 'cc';
+import { _decorator, Node, instantiate } from 'cc';
 import { BaseUT } from '../base/BaseUtil';
 import { ResMgr } from '../mgr/ResMgr';
 import { SceneMgr } from '../mgr/SceneMgr';
@@ -13,8 +13,7 @@ const { ccclass, property } = _decorator;
 export class UILayer extends UIComp {
 
     private _oldParent: Node;
-    public static async show(data?: any) {
-      
+    public static async show(data?: any): Promise<UILayer> {
         let prefab = await ResMgr.inst.loadPrefab(this.prefabUrl);
         const newNode = instantiate(prefab);
         // newNode.layer = Layers.Enum.UI_2D;
@@ -32,7 +31,7 @@ export class UILayer extends UIComp {
         self.node.setParent(SceneMgr.inst.curScene.layer);
     }
 
-    private onAddToLayer(){
+    private onAddToLayer() {
         let self = this;
         self._oldParent = self.node.parent;
     }
@@ -60,8 +59,8 @@ export class UILayer extends UIComp {
         });
     }
 
-    
-    protected _tap_btn_close(){
+
+    protected _tap_btn_close() {
         let self = this;
         self.close();
     }
